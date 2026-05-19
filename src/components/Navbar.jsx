@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-
+import logoImg from '../assets/logo.png';
 function Navbar({ user, setUser }) {
   function logOut() {
     localStorage.removeItem('token')
@@ -7,7 +7,13 @@ function Navbar({ user, setUser }) {
   }
 
   return (
-    <div>
+    <div className='navbar'>
+
+      <a href="/" className="nav-logo">
+        <img src={logoImg} alt="Build Forge Logo" />
+      </a>
+
+      
       {/* Routes seen by everyone */}
       <Link className='nav-item' to='/'>Homepage</Link>
 
@@ -17,7 +23,7 @@ function Navbar({ user, setUser }) {
           <Link className='nav-item' to='/dashboard'>Dashboard</Link>
           <Link className='nav-item' to='/builds/create'>Create Build</Link>
 
-          <span className='nav-item'>{user.username}</span>
+          <span className='nav-item'>What will you build {user.username}?</span>
 
           <button className='nav-item' onClick={logOut}>Log Out</button>
         </>

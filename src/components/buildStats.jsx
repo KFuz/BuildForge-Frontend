@@ -47,7 +47,7 @@ function BuildStats({ build, items }) {
       <p>Purchased Items: {purchasedItems.length}</p>
       <p>Not Purchased Items: {notPurchasedItems.length}</p>
 
-      <div style={{ width: "100%", height: "300px" }}>
+      <div style={{ width: "50%", height: "150px" }}>
         <ResponsiveContainer>
           <BarChart data={chartData}>
             <XAxis dataKey="name" />

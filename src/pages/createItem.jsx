@@ -44,63 +44,102 @@ function CreateItem() {
   }
 
   return (
-    <div>
-      <h1>Add Item</h1>
+    <div className="form-page create-item-page">
+      <h1 className="page-title form-title">Add Item</h1>
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="title">Title:</label>
-        <input
-          id="title"
-          value={formData.title}
-          onChange={handleChange}
-          name="title"
-          type="text"
-          required
-        />
+      <form className="item-form" onSubmit={handleSubmit}>
+        <div className="form-field">
+          <label className="form-label" htmlFor="title">
+            Title:
+          </label>
+          <input
+            className="form-input"
+            id="title"
+            value={formData.title}
+            onChange={handleChange}
+            name="title"
+            type="text"
+            required
+          />
+        </div>
 
-        <label htmlFor="category">Category:</label>
-        <select
-          id="category"
-          value={formData.category}
-          onChange={handleChange}
-          name="category"
-        >
-          <option value="Body">Body</option>
-          <option value="Electrical">Electrical</option>
-          <option value="Mechanical">Mechanical</option>
-          <option value="Suspension">Suspension</option>
-        </select>
+        <div className="form-field">
+          <label className="form-label" htmlFor="category">
+            Category:
+          </label>
+          <select
+            className="form-input form-select"
+            id="category"
+            value={formData.category}
+            onChange={handleChange}
+            name="category"
+          >
+            <option className="form-option" value="Body">
+              Body
+            </option>
+            <option className="form-option" value="Electrical">
+              Electrical
+            </option>
+            <option className="form-option" value="Mechanical">
+              Mechanical
+            </option>
+            <option className="form-option" value="Suspension">
+              Suspension
+            </option>
+          </select>
+        </div>
 
-        <label htmlFor="status">Status:</label>
-        <select
-          id="status"
-          value={formData.status}
-          onChange={handleChange}
-          name="status"
-        >
-          <option value="Not purchased">Not purchased</option>
-          <option value="Purchased">Purchased</option>
-        </select>
+        <div className="form-field">
+          <label className="form-label" htmlFor="status">
+            Status:
+          </label>
+          <select
+            className="form-input form-select"
+            id="status"
+            value={formData.status}
+            onChange={handleChange}
+            name="status"
+          >
+            <option className="form-option" value="Not purchased">
+              Not purchased
+            </option>
+            <option className="form-option" value="Purchased">
+              Purchased
+            </option>
+          </select>
+        </div>
 
-        <label htmlFor="cost">Cost:</label>
-        <input
-          id="cost"
-          value={formData.cost}
-          onChange={handleChange}
-          name="cost"
-          type="number"
-          required
-        />
+        <div className="form-field">
+          <label className="form-label" htmlFor="cost">
+            Cost:
+          </label>
+          <input
+            className="form-input"
+            id="cost"
+            value={formData.cost}
+            onChange={handleChange}
+            name="cost"
+            type="number"
+            required
+          />
+        </div>
 
-        <label htmlFor="notes">Notes:</label>
-        <textarea
-          id="notes"
-          value={formData.notes}
-          onChange={handleChange}
-          name="notes"
-        />
+        <div className="form-field">
+          <label className="form-label" htmlFor="notes">
+            Notes:
+          </label>
+          <textarea
+            className="form-input form-textarea"
+            id="notes"
+            value={formData.notes}
+            onChange={handleChange}
+            name="notes"
+          />
+        </div>
 
-        <button type="submit">Add Item</button>
+        <button className="form-button" type="submit">
+          Add Item
+        </button>
       </form>
     </div>
   );

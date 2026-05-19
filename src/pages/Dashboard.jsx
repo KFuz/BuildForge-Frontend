@@ -29,28 +29,39 @@ function Dashboard({ user }) {
   }, []);
 
   return (
-    <div>
-      <h1>Welcome {user.username}</h1>
+    <div className="dashblock dashboard-page">
+      <div className="dashboard-header">
+        <div className="dashboard-title-block">
+          <h1 className="page-title dashboard-title">Welcome {user.username}</h1>
+          <h2 className="dashheading dashboard-subtitle">Your Builds</h2>
+        </div>
 
-      <h2>Your Builds</h2>
-
-      <Link to="/builds/create">Create New Build</Link>
+        <Link className="create-link dashboard-create-link" to="/builds/create">
+          Create New Build
+        </Link>
+      </div>
 
       {builds.length === 0 ? (
-        <p>No builds yet.</p>
+        <p className="empty-text dashboard-empty">No builds yet.</p>
       ) : (
-        <div>
+        <div className="builds-list dashboard-builds-list">
           {builds.map((build) => (
-            <div key={build._id}>
-              <h3>
-                <Link to={`/builds/${build._id}`}>{build.title}</Link>
-              </h3>
+            <div key={build._id} className="build-row dashboard-build-row">
+              <div className="build-info dashboard-build-info">
+                <h3 className="build-title">
+                  <Link className="build-link" to={`/builds/${build._id}`}>
+                    {build.title}
+                  </Link>
+                </h3>
+                <p className="build-meta">
+                  {build.year} {build.make} {build.model}
+                </p>
+              </div>
 
-              <p>
-                {build.year} {build.make} {build.model}
-              </p>
-
-              <p>Status: {build.status}</p>
+              <div className="build-status dashboard-build-status">
+                <span className="status-label">Status:</span>
+                <span className="status-value">{build.status}</span>
+              </div>
             </div>
           ))}
         </div>
